@@ -145,7 +145,7 @@
                 var y = seconds_width / 2;
 
                 context.beginPath();
-                context.arc(x, y, radius, convertToDeg(0), convertToDeg(timer.seconds * 6));
+                context.arc(x, y, radius, convertToDeg(0), convertToDeg(60 - timer.seconds * 6));
                 context.fillStrokeShape(this);
 
                 $(settings.selectors.value_seconds).html(60 - timer.seconds);
@@ -174,7 +174,7 @@
                 var y = minutes_width / 2;
 
                 context.beginPath();
-                context.arc(x, y, radius, convertToDeg(0), convertToDeg(timer.minutes * 6));
+                context.arc(x, y, radius, convertToDeg(0), convertToDeg(60 - timer.minutes * 6));
                 context.fillStrokeShape(this);
 
                 $(settings.selectors.value_minutes).html(60 - timer.minutes);
@@ -204,7 +204,7 @@
                 var y = hours_width / 2;
 
                 context.beginPath();
-                context.arc(x, y, radius, convertToDeg(0), convertToDeg(timer.hours * 360 / 24));
+                context.arc(x, y, radius, convertToDeg(0), convertToDeg(24 - timer.hours * 360 / 24));
                 context.fillStrokeShape(this);
 
                 $(settings.selectors.value_hours).html(24 - timer.hours);
@@ -238,7 +238,7 @@
                 if (timer.total == 0) {
                     context.arc(x, y, radius, convertToDeg(0), convertToDeg(360));
                 } else {
-                    context.arc(x, y, radius, convertToDeg(0), convertToDeg((360 / timer.total) * (timer.total - timer.days)));
+                    context.arc(x, y, radius, convertToDeg(0), convertToDeg(360 - (360 / timer.total) * (timer.total - timer.days)));
                 }
                 context.fillStrokeShape(this);
 
