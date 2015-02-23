@@ -25,7 +25,7 @@
     var callbackFunction;
 
     $.fn.final_countdown = function(options, callback) {
-        element = $(this);        
+        element = $(this);
 
         var defaults = $.extend({
             start: undefined,
@@ -90,7 +90,7 @@
         if (typeof callback == 'function') { // make sure the callback is a function
             callbackFunction = callback;
         }
-        
+
         responsive();
         dispatchTimer();
         prepareCounters();
@@ -107,7 +107,7 @@
         $(window).on('resize', updateCircles);
     }
 
-    function updateCircles() {     
+    function updateCircles() {
         layerSeconds.draw();
         layerMinutes.draw();
         layerHours.draw();
@@ -254,8 +254,8 @@
         daysStage.add(layerDays);
     }
 
-    function startCounters() {        
-        var interval = setInterval( function() {                        
+    function startCounters() {
+        var interval = setInterval( function() {
             if (timer.seconds > 59 ) {
                 if (60 - timer.minutes == 0 && 24 - timer.hours == 0 && timer.days == 0) {
                     clearInterval(interval);
@@ -276,16 +276,16 @@
                             timer.days--;
                             layerDays.draw();
                         }
-                    } else {                        
+                    } else {
                         timer.hours++;
-                    }                    
+                    }
                     layerHours.draw()
                 } else {
                     timer.minutes++;
                 }
 
                 layerMinutes.draw();
-            } else {            
+            } else {
                 timer.seconds++;
             }
 
